@@ -71,7 +71,8 @@ app.get('/', (req, res) => {
             }
           })
           .then((res) => {
-            //res.type('application/octet-stream');
+            // console.log(res.headers); // <= descomentar para ver las cabezeras
+            // return; // <= descomentar para ver las cabezeras
             const fileName = res.headers['x-processed-filename'];
             const url = window.URL.createObjectURL(new Blob([res.data]));
             const link = document.createElement('a');
