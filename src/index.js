@@ -24,7 +24,6 @@ app.get('/download', (req, res) => {
 
   // adding sheet
   const ws = wb.addWorksheet('Hoja 1');
-  console.log(ws);
   ws.getRow(1).getCell(1).value = 100;
   ws.getRow(2).getCell(1).value = 200;
   ws.getRow(3).getCell(1).value = ws.getRow(1).getCell(1).value + ws.getRow(2).getCell(1).value;
