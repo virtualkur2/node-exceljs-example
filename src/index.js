@@ -66,8 +66,9 @@ app.get('/', (req, res) => {
           event.preventDefault();
           axios.get('http://localhost:3000/download')
           .then((res) => {
+            //res.type('application/octet-stream');
             const fileName = res.headers['x-processed-filename'];
-            const url = window.URL.createObjectURL(new Blob([res]));
+            const url = window.URL.createObjectURL(new Blob([res.data]));
             const link = document.createElement('a');
             link.href = url;
             link.setAttribute('download', fileName);
