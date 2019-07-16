@@ -64,7 +64,12 @@ app.get('/', (req, res) => {
         const button = document.getElementById('download');
         button.addEventListener('click', (event) => {
           event.preventDefault();
-          axios.get('http://localhost:3000/download')
+          axios.get('http://localhost:3000/download', {
+            responseType: 'blob',
+            headers: {
+              Accept: 'application/octet-stream'
+            }
+          })
           .then((res) => {
             //res.type('application/octet-stream');
             const fileName = res.headers['x-processed-filename'];
